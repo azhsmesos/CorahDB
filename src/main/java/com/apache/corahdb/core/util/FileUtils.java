@@ -18,6 +18,17 @@ public class FileUtils {
         return init(dir, fileName);
     }
 
+    public static String createNewFolder(String dir) {
+        File file = new File(dir);
+        if (file.exists()) {
+            return file.getPath();
+        }
+        if (!file.mkdirs()) {
+            throw new RuntimeException("create folder error: %s" + dir);
+        }
+        return file.getPath();
+    }
+
     private static String init(String dir, String fileName) {
         File file = new File(dir, fileName);
         if (!file.exists()) {
@@ -41,5 +52,10 @@ public class FileUtils {
             }
         }
         return file.getPath();
+    }
+
+    public static boolean checkFileNotnoll(String DBPath) {
+        File file = new File(DBPath);
+        return file.exists();
     }
 }

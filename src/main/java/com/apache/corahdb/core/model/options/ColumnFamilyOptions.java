@@ -20,9 +20,15 @@ public class ColumnFamilyOptions {
 
     private Duration memSpaceWaitTimeout;
 
+    private String indexerDir;
+
     private int flushBatchSize;
 
     private boolean walMMAP;
+
+    private int walBytesFlush;
+
+    private String valueLogDir;
 
     private long valueLogFileSize;
 
@@ -86,6 +92,15 @@ public class ColumnFamilyOptions {
         return this;
     }
 
+    public String getIndexerDir() {
+        return indexerDir;
+    }
+
+    public ColumnFamilyOptions setIndexerDir(String indexerDir) {
+        this.indexerDir = indexerDir;
+        return this;
+    }
+
     public int getFlushBatchSize() {
         return flushBatchSize;
     }
@@ -101,6 +116,24 @@ public class ColumnFamilyOptions {
 
     public ColumnFamilyOptions setWalMMAP(boolean walMMAP) {
         this.walMMAP = walMMAP;
+        return this;
+    }
+
+    public int getWalBytesFlush() {
+        return walBytesFlush;
+    }
+
+    public ColumnFamilyOptions setWalBytesFlush(int walBytesFlush) {
+        this.walBytesFlush = walBytesFlush;
+        return this;
+    }
+
+    public String getValueLogDir() {
+        return valueLogDir;
+    }
+
+    public ColumnFamilyOptions setValueLogDir(String valueLogDir) {
+        this.valueLogDir = valueLogDir;
         return this;
     }
 
